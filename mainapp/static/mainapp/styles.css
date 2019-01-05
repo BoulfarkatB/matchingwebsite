@@ -1,0 +1,21 @@
+.fieldname {
+	width: 200px;
+	font-weight: bold;
+}
+
+form ul {
+	list-style: none
+}
+
+input {
+	margin: 5px;
+	padding: 5px 10px;
+}
+
+img {
+	cursor: pointer;
+}
+
+.navbar {
+	border-radius: 0; /* Removed border-radius */
+}

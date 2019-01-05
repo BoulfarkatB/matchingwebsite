@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>{{ appname }}</title>
+
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="{% static 'mainapp/styles.css' %}" />
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="{% static 'mainapp/scripts.js' %}"></script>
+	<script src="{% static 'mainapp/file_upload.js' %}"></script>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'index' %}">Shaaadhi.com</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+			{% if user.is_authenticated %}
+				<ul class="nav navbar-nav">
+						<li><a href="{% url 'members' %}">Members</a></li>
+					  <li class="dropdown">
+        			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
+							<span class="caret"></span></a>
+        			<ul class="dropdown-menu">
+								<li><a href="{% url 'profile' %}">My Profile</a></li>
+								<li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
+        			</ul>
+						</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="{% url 'logout' %}">Log out</a></li>
+				</ul>
+			{% else %}
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="{% url 'signup' %}">Sign up</a></li>
+						<li><a href="{% url 'login' %}">Log in</a></li>
+				</ul>
+			{% endif %}
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+	{% block content %}
+	{% endblock %}
+	</div>
+</body>
+</html>

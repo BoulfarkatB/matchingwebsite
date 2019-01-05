@@ -1,0 +1,13 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+
+		{% if user.is_authenticated %}
+    	<h1>Welcome back, {{ user }}!</h1>
+		{% else %}
+			<h1>Welcome to {{ appname }}!</h1>
+			<p>Please log in or sign up to create an account.</p>
+   	{% endif %}
+		<p>Meet hot single Russians in your area!</p>
+
+{% endblock %}

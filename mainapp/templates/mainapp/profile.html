@@ -1,0 +1,34 @@
+{% extends "mainapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Profile ({{ user }})</h1>
+
+<!-- Display the user's set image, or dislpay default profile image -->
+{% if user.profile.image %}
+	<a href='{{user.profile.image.url}}'>
+		<img id='profile-img' height=150 src='{{user.profile.image.url}}' alt='Profile image'/>
+	</a>
+{% else %}
+	<img id='profile-img' height=150 src="{% static 'mainapp/profile-image.jpg' %}" alt='Profile image'/>
+{% endif %}
+
+<h3>{{ user.first_name }} {{ user.last_name }}</h3>
+<p>{{ user.profile.dob }}</p>
+<p>{{ user.profile.gender }}</p>
+<a href='mailto:{{ user.email }}'>{{ user.email }}</a>
+<br><br>
+
+<!-- Display user's hobbies if they have any -->
+{% if user.profile.hobbies.all.count > 0 %}
+	<h4>Hobbies:</h4>
+	<ul>
+		{% for hobby in user.profile.hobbies.all %}
+			<li>{{ hobby }}</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% endblock %}
