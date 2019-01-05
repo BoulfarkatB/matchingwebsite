@@ -25,7 +25,7 @@ SECRET_KEY = '7__ldo@rla(5%&k8xh&rai_$(yek-dq$-_ctl2=v$nl-=!tza2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','https://sheltered-fjord-72392.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','sheltered-fjord-72392.herokuapp.com']
 
 
 # Application definition
